@@ -3,12 +3,15 @@ import PyPDF2 as pdf
 from dotenv import load_dotenv
 from openai import OpenAI
 
-client = OpenAI(api_key="")
-
 # Load environment variables
 load_dotenv()
 
 # Set up OpenAI API key
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    raise ValueError("OpenAI API key is missing. Please set it in the environment variables.")
+
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 def get_chat_response(prompt):
     response = client.chat.completions.create(
