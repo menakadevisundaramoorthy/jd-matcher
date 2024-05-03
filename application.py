@@ -13,14 +13,6 @@ def match_jd_and_resume():
     data = request.json
     keys = data.keys()
 
-    # validate cart_value
-#    if 'cart_value' not in keys or type(data['cart_value']) is not int:
-#        abort_request("Please enter valid cart_value")
-
-    # validate delivery_distance
-#    if 'delivery_distance' not in keys or type(data['delivery_distance']) is not int:
-#        abort_request("Please enter valid delivery_distance")
-
     resumes = data['resumes']
     job_description = data['job_description']
 
